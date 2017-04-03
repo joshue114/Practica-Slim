@@ -1,0 +1,21 @@
+<?php
+    $data = file_get_contents("data/employees.json");
+    $products = json_decode($data, true);
+    $data1 = $products[1]['skills'];
+   //echo "LISTA DE EMPLEADOS" . $data1[3]['skill'];
+    $id = $response->getAttribute('id');
+    //$i = count($products);
+?>
+<div class="container">
+    <div clss="row">
+        <div class="col-md-12">
+            <h3><?= $products[$i]["name"] ?></h3>
+            <h3><?= $products[$i]["email"] ?></h3>
+            <h3><?= $products[$i]["phone"] ?></h3>
+            <h3><?= $products[$i]["address"] ?></h3>
+            <h3><?= $products[$i]["position"] ?></h3>
+            <h3><?= $products[$i]["salary"] ?></h3>
+            <h3><?= $products[$i]["name"] ?></h3>
+        </div>
+    </div>
+</div>

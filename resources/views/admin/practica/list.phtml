@@ -1,0 +1,49 @@
+<?php
+    $data = file_get_contents("data/employees.json");
+    $products = json_decode($data, true);
+?>
+<div class="container">
+    <div clss="row">
+        <div class="col-md-12">
+            <h2>Empleados</h2>
+
+            <form class="form-inline" action="<?= PATH?>/admin/practica/email">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="exampleInputAmount" placeholder="Email">
+                </div>
+                <button type="submit" class="btn btn-primary btn-buscar-practica">Buscar</button>
+            </form>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Lista de Empleados
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th> <th>Nombre</th> 
+                                <th>Email</th> <th>Posición</th>
+                                <th>Salario</th> <th>Opciones</th>
+                            </tr>
+                        </thead>
+                        <?php for($i=0 ; $i < count($products) ; $i++) { ?>
+                            <tbody>
+                                <tr>
+                                    <td><?= $i + 1 ?></td>
+                                    <td><?= $products[$i]["name"] ?></td>
+                                    <td><?= $products[$i]["email"] ?></td>
+                                    <td><?= $products[$i]["position"] ?></td>
+                                    <td><?= $products[$i]["salary"] ?></td>
+                                    <td>
+                                        <a href="<?= PATH ?>/admin/practica/<?= $i ?>/view" alt="visualizar" class="btn btn-info">Visualizar</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        <?php }?>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
